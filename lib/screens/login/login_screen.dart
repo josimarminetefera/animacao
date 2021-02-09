@@ -1,3 +1,4 @@
+import 'package:animacao/screens/login/widget/botao_cadastrar.dart';
 import 'package:animacao/screens/login/widget/formulario_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -35,6 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     FormularioWidget(),
+                    BotaoCadastrar(),
                   ],
                 ),
               ],
