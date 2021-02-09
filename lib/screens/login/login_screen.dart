@@ -1,5 +1,6 @@
 import 'package:animacao/screens/login/widget/botao_cadastrar.dart';
 import 'package:animacao/screens/login/widget/formulario_widget.dart';
+import 'package:animacao/screens/login/widget/stagger_animation.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -7,7 +8,25 @@ class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStateMixin {
+  AnimationController _animationController;
+
+  @override
+  void initState() {
+    super.initState();
+    //iniciar controller
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 2),
+    );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose(); //liberar a memória ao sair da tela
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             //para que ao clicar no botão a animação cubra a tela toda tem que criar um stack
             Stack(
+              alignment: Alignment.bottomCenter, // alinhar todos componentes na parte de baixo do widget
               children: [
                 Column(
                   children: [
@@ -39,6 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     BotaoCadastrar(),
                   ],
                 ),
+                StaggerAnimation(controller: _animationController.view),
               ],
             ),
           ],
