@@ -3,7 +3,21 @@ import 'package:flutter/material.dart';
 class StaggerAnimation extends StatelessWidget {
   final AnimationController controller;
 
-  StaggerAnimation({this.controller});
+  StaggerAnimation({this.controller})
+      : animacao_botao = Tween(
+          begin: 320.0,
+          end: 60.0,
+        ).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.0,
+              0.150,
+            ),
+          ),
+        );
+
+  final Animation<double> animacao_botao;
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +34,13 @@ class StaggerAnimation extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 50),
       //InkWell servir de botão
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          controller.forward();
+        },
         child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 20),
+          //margin: EdgeInsets.symmetric(horizontal: 20),
           height: 60,
+          width: animacao_botao.value,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: Color.fromRGBO(247, 64, 106, 1.0),
