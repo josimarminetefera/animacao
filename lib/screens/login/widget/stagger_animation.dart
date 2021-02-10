@@ -10,14 +10,21 @@ class StaggerAnimation extends StatelessWidget {
         ).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(
-              0.0,
-              0.150,
-            ),
+            curve: Interval(0.0, 0.150),
+          ),
+        ),
+        animacao_botao_zoom_saida = Tween(
+          begin: 60.0,
+          end: 1000.0,
+        ).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(0.5, 1.0, curve: Curves.bounceOut),
           ),
         );
 
   final Animation<double> animacao_botao;
+  final Animation<double> animacao_botao_zoom_saida;
 
   @override
   Widget build(BuildContext context) {
@@ -37,17 +44,25 @@ class StaggerAnimation extends StatelessWidget {
         onTap: () {
           controller.forward();
         },
-        child: Container(
-          //margin: EdgeInsets.symmetric(horizontal: 20),
-          height: 60,
-          width: animacao_botao.value,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: Color.fromRGBO(247, 64, 106, 1.0),
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
-          ),
-          child: _conteudoBotaoEntrar(context),
-        ),
+        child: animacao_botao_zoom_saida.value == 60
+            ? Container(
+                height: 60,
+                width: animacao_botao.value,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(247, 64, 106, 1.0),
+                  borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                ),
+                child: _conteudoBotaoEntrar(context),
+              )
+            : Container(
+                height: animacao_botao_zoom_saida.value,
+                width: animacao_botao_zoom_saida.value,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(247, 64, 106, 1.0),
+                  shape: (animacao_botao_zoom_saida.value < 500) ? BoxShape.circle : BoxShape.rectangle,
+                ),
+              ),
       ),
     );
   }
