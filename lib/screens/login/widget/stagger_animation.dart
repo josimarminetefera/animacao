@@ -46,17 +46,28 @@ class StaggerAnimation extends StatelessWidget {
             color: Color.fromRGBO(247, 64, 106, 1.0),
             borderRadius: BorderRadius.all(Radius.circular(30.0)),
           ),
-          child: Text(
-            "Entrar",
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w300,
-              fontSize: 20,
-              letterSpacing: 0.3,
-            ),
-          ),
+          child: _conteudoBotaoEntrar(context),
         ),
       ),
     );
+  }
+
+  Widget _conteudoBotaoEntrar(BuildContext context) {
+    if (animacao_botao.value > 75) {
+      return Text(
+        "Entrar",
+        style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.w300,
+          fontSize: 20,
+          letterSpacing: 0.3,
+        ),
+      );
+    } else {
+      return CircularProgressIndicator(
+        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+        strokeWidth: 1.0,
+      );
+    }
   }
 }

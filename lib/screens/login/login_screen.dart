@@ -2,6 +2,7 @@ import 'package:animacao/screens/login/widget/botao_cadastrar.dart';
 import 'package:animacao/screens/login/widget/formulario_widget.dart';
 import 'package:animacao/screens/login/widget/stagger_animation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart' show timeDilation;
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -29,6 +30,8 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
 
   @override
   Widget build(BuildContext context) {
+    timeDilation = 1; //isso deixa o build 1 vezes mais lerdo.
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -59,6 +62,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                     BotaoCadastrar(),
                   ],
                 ),
+                //botão entrar ele fica acima do botão cadastrar graças ao alinhamento na parte inferior
                 StaggerAnimation(controller: _animationController.view),
               ],
             ),
