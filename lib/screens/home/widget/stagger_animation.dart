@@ -1,16 +1,19 @@
+import 'package:animacao/screens/home/widget/home_top.dart';
 import 'package:flutter/material.dart';
 
 class StaggerAnimation extends StatelessWidget {
   final AnimationController controller;
 
-  StaggerAnimation({this.controller});
+  StaggerAnimation({@required this.controller});
+
+  final Animation<double> containerQueVaiCrescer;
 
   Widget _builderAnimation(BuildContext context, Widget child) {
     return ListView(
       padding: EdgeInsets.zero,
       children: [
-        HomeTopo(
-
+        HomeTop(
+          containerQueVaiCrescer: containerQueVaiCrescer,
         ),
       ],
     );
