@@ -4,7 +4,11 @@ import 'package:flutter/material.dart';
 class StaggerAnimation extends StatelessWidget {
   final AnimationController controller;
 
-  StaggerAnimation({@required this.controller});
+  StaggerAnimation({@required this.controller})
+      : containerQueVaiCrescer = CurvedAnimation(
+          parent: controller,
+          curve: Curves.ease,
+        );
 
   final Animation<double> containerQueVaiCrescer;
 
