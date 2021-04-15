@@ -1,3 +1,4 @@
+import 'package:animacao/screens/home/home_screen.dart';
 import 'package:animacao/screens/login/widget/botao_cadastrar.dart';
 import 'package:animacao/screens/login/widget/formulario_widget.dart';
 import 'package:animacao/screens/login/widget/stagger_animation.dart';
@@ -20,6 +21,17 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
       vsync: this,
       duration: Duration(seconds: 2),
     );
+
+    //quando a animação finalizar eu vou trocar para a proxima tela
+    _animationController.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        //dessa forma aqui sem o hero ela fica rápida e chapada.
+        //para substituir esta tela por outra
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+        );
+      }
+    });
   }
 
   @override
