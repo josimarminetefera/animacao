@@ -1,3 +1,4 @@
+import 'package:animacao/screens/home/widget/categoria_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeTop extends StatelessWidget {
@@ -25,44 +26,53 @@ class HomeTop extends StatelessWidget {
             Text(
               "Bem Vindo Josimar",
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 20,
                 fontWeight: FontWeight.w300,
                 color: Colors.white,
               ),
             ),
             //Container principal com a imagem e a notificaçao
-            Container(
-              alignment: Alignment.topRight,
-              //alinhamento na notificação = alinhamento do filho a direita
-              width: containerQueVaiCrescer.value * 120,
-              height: containerQueVaiCrescer.value * 120,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: AssetImage("images/perfil.PNG"),
-                  fit: BoxFit.cover, //imagem cobre o cicle
-                ),
-              ),
-              child: Container(
-                // numero que fica no canto direito
-                height: containerQueVaiCrescer.value * 35,
-                width: containerQueVaiCrescer.value * 35,
-                margin: EdgeInsets.only(left: 80),
-                alignment: Alignment.center,
-                //tem como alinhas com alignment e child center
-                child: Center(
-                  child: Text(
-                    "1",
-                    style: TextStyle(fontSize: containerQueVaiCrescer.value * 15, fontWeight: FontWeight.w400, color: Colors.white),
-                  ),
-                ),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Color.fromRGBO(80, 210, 198, 1.0),
-                ),
-              ),
-            ),
+            ImagemComNotificacao(),
+            CategoriaView(),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget ImagemComNotificacao() {
+    return Container(
+      alignment: Alignment.topRight,
+      //alinhamento na notificação = alinhamento do filho a direita
+      width: containerQueVaiCrescer.value * 90,
+      height: containerQueVaiCrescer.value * 90,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        image: DecorationImage(
+          image: AssetImage("images/perfil.PNG"),
+          fit: BoxFit.cover, //imagem cobre o cicle
+        ),
+      ),
+      child: Container(
+        // numero que fica no canto direito
+        height: containerQueVaiCrescer.value * 35,
+        width: containerQueVaiCrescer.value * 35,
+        margin: EdgeInsets.only(left: 60),
+        alignment: Alignment.center,
+        //tem como alinhas com alignment e child center
+        child: Center(
+          child: Text(
+            "1",
+            style: TextStyle(
+              fontSize: containerQueVaiCrescer.value * 15,
+              fontWeight: FontWeight.w400,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Color.fromRGBO(80, 210, 198, 1.0),
         ),
       ),
     );
