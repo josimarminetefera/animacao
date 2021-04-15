@@ -17,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       vsync: this,
       duration: Duration(milliseconds: 2000), //tempo para animar tudo na tela
     );
+    _controller.forward();
   }
 
   @override
@@ -27,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
+    timeDilation = 5; //para definir tempo de animação
     return StaggerAnimation(
       controller: _controller.view,
     );
