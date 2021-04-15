@@ -22,11 +22,11 @@ class ListaAnimadaDados extends StatelessWidget {
         color: Colors.white,
         border: Border(
           top: BorderSide(
-            color: Colors.grey,
+            color: Colors.grey[100],
             width: 1.0,
           ),
           bottom: BorderSide(
-            color: Colors.grey,
+            color: Colors.grey[100],
             width: 1.0,
           ),
         ),

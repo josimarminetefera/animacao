@@ -16,6 +16,24 @@ class ListaAnimada extends StatelessWidget {
           titulo: "Estudar Flutter",
           subTitulo: "Curso muito bom",
           image: AssetImage("images/perfil.PNG"),
+          margin: listaSlide.value * 6,
+        ),
+        ListaAnimadaDados(
+          titulo: "Estudar Flutter",
+          subTitulo: "Curso muito bom",
+          image: AssetImage("images/perfil.PNG"),
+          margin: listaSlide.value * 5,
+        ),
+        ListaAnimadaDados(
+          titulo: "Estudar Flutter ds ",
+          subTitulo: "Curso muito bomfdsfds ",
+          image: AssetImage("images/perfil.PNG"),
+          margin: listaSlide.value * 4,
+        ),
+        ListaAnimadaDados(
+          titulo: "Estudar Flutter",
+          subTitulo: "Curso muito bom",
+          image: AssetImage("images/perfil.PNG"),
           margin: listaSlide.value * 3,
         ),
         ListaAnimadaDados(
